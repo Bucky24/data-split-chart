@@ -1,5 +1,5 @@
 import React from 'react';
-import { drawRect, drawCenteredText } from './draw';
+import { drawRect, drawCenteredText, drawShape } from './draw';
 
 function getDataAsLayers(graphData) {
 	return getDataAsLayersHelper(graphData, 1, null);
