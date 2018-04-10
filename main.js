@@ -47,7 +47,7 @@ class Chart extends React.Component {
 
 		const spaceBetween = 30;
 		// 30 for padding
-		const height = canvas.height - spaceBetween;
+		const height = this.canvas.height - spaceBetween;
 		const totalAmount = layers[1][0].amount;
 
 		const layerKeys = Object.keys(layers);
@@ -65,7 +65,7 @@ class Chart extends React.Component {
 		const pixelsPerData = spaceLeftForData / totalAmount;
 
 		// 30 for padding
-		const width = canvas.width - spaceBetween;
+		const width = this.canvas.width - spaceBetween;
 		const widthPerLayer = width / layerKeys.length;
 		const widthForData = widthPerLayer - spaceBetween;
 
@@ -123,7 +123,7 @@ class Chart extends React.Component {
 			], obj.color, true);
 		});
 
-		drawRect(ctx, 0, 0, canvas.width, canvas.height, "#000", false);
+		drawRect(ctx, 0, 0, this.canvas.width, this.canvas.height, "#000", false);
 	}
 	
 	render() {
