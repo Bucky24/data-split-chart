@@ -5,6 +5,6 @@
 	"main": "build/main.js",
 	"scripts": {
 		"postinstall": "npm run babel",
-		"babel": "babel --presets=react,env *.js --out-dir build"
+		"babel": "babel --presets=react,env --plugins=transform-object-rest-spread *.js --out-dir build"
 	}
 }

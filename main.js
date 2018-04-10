@@ -7,9 +7,10 @@ function getDataAsLayers(graphData) {
 
 function getDataAsLayersHelper(object, layer, parent) {
 	var result = {};
-	var newObject = _extends({}, object, {
+	var newObject = {
+		...object,
 		parentId: parent
-	});
+	};
 	result[layer] = [newObject];
 	if (!object.children) {
 		return result;
@@ -120,10 +121,7 @@ class Chart extends React.Component {
 	}
 	
 	render() {
-		return (<canvas ref={(c) => {
-			this.canvas = c;
-			this.draw();
-		 }}>No canvas for you</canvas>);
+
 	}
 };
 
