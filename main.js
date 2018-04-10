@@ -127,4 +127,4 @@ class Chart extends React.Component {
 	}
 };
 
-export default Canvas;
+export default Chart;
