@@ -19,7 +19,7 @@ function getDataAsLayersHelper(object, layer, parent) {
 		var childResult = getDataAsLayersHelper(child, layer + 1, object.id);
 		Object.keys(childResult).forEach(function (key) {
 			result[key] = [
-				...result[key]
+				...result[key],
 				...childResult[key]
 			];
 		});
