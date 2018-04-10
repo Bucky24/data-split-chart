@@ -121,8 +121,11 @@ class Chart extends React.Component {
 	}
 	
 	render() {
-
+		return (<canvas ref={(c) => {
+			this.canvas = c;
+			this.draw();
+		 }}>No canvas for you</canvas>);
 	}
 };
 
-export default Chart;
+export default Canvas;
