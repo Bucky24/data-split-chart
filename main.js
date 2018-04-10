@@ -44,8 +44,8 @@ class Chart extends React.Component {
 		const totalAmount = layers[1][0].amount;
 
 		const layerKeys = Object.keys(layers);
-		const highestLayerId = -1;
-		const highestLayerCount = 0;
+		let highestLayerId = -1;
+		let highestLayerCount = 0;
 		// find layer with most entries
 		layerKeys.forEach((key) => {
 			if (layers[key].length > highestLayerCount) {

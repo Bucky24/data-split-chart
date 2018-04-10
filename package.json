@@ -2,5 +2,9 @@
 	"version": "0.0.1",
 	"name": "data-split-chart",
 	"author": "rwijtman",
-	"main": "index.js"
+	"main": "build/main.js",
+	"scripts": {
+		"postinstall": "npm run babel",
+		"babel": "babel --presets=react,env *.js --out-dir build"
+	}
 }
