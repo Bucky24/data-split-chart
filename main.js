@@ -18,7 +18,10 @@ function getDataAsLayersHelper(object, layer, parent) {
 	object.children.forEach(function (child) {
 		var childResult = getDataAsLayersHelper(child, layer + 1, object.id);
 		Object.keys(childResult).forEach(function (key) {
-			result[key] = [].concat(_toConsumableArray(result[key] || []), _toConsumableArray(childResult[key]));
+			result[key] = [
+				...result[key]
+				...childResult[key]
+			];
 		});
 	});
 
