@@ -127,7 +127,7 @@ class Chart extends React.Component {
 	}
 	
 	render() {
-		return (<canvas ref={(c) => {
+		return (<canvas  width="500px" height="500px" ref={(c) => {
 			this.canvas = c;
 			this.draw();
 		 }}>No canvas for you</canvas>);
