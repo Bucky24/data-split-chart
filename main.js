@@ -29,7 +29,8 @@ function getDataAsLayersHelper(object, layer, parent) {
 		var amount = result[layer + 1].reduce(function (amount, obj) {
 			return amount + obj.amount;
 		}, 0);
-		newObject.amount = amount;
+		const existingAmount = newObject.amount || 0;
+		newObject.amount = existingAmount + amount;
 	}
 
 	return result;
