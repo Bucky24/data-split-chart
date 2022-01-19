@@ -4,27 +4,29 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ProgressBarPlugin = require('progress-bar-webpack-plugin');
 
 module.exports = {
-	entry: './test.js',
+	entry: './test/test.js',
 	output: {
 		path: path.resolve(__dirname, 'build'),
 		filename: 'main.bundle.js'
 	},
+	mode: "development",
 	module: {
 		rules: [
 			{
 				test: /\.js$/,
-				loader: 'babel-loader',
 				exclude: /node_modules/,
-				query: {
-					presets: ['env', 'react'],
-					plugins: [
-						["transform-runtime", {
-				            "polyfill": false,
-				            "helpers": false
-				        }],
-				        "transform-object-rest-spread"
-					]
-				}
+				use: {
+					loader: 'babel-loader',
+					options: {
+						presets: [
+							[require.resolve('@babel/preset-env'), {
+								exclude: ["transform-regenerator"],
+							}],
+							'@babel/preset-react'
+						],
+						plugins: ["@babel/plugin-proposal-class-properties"]
+					},
+				},
 			},
 			{
 				test: /\.css$/,
@@ -33,10 +35,11 @@ module.exports = {
 			{
 				test: /\.css$/,
 				loader: 'css-loader',
-				query: {
-					modules: true,
-					localIdentName: '[name]__[local]___[hash:base64:5]'
-				}
+				options: {
+					modules: {
+						localIdentName: "[path][name]__[local]--[hash:base64:5]",
+					},
+				},
 			}
 		]
 	},
@@ -46,7 +49,7 @@ module.exports = {
 	devtool: 'eval-source-map',
 	plugins: [
 		new HtmlWebpackPlugin({
-			template: "index.tmpl.html"
+			template: "./test/index.tmpl.html"
 		}),
 		new ProgressBarPlugin()
 	]

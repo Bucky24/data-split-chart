@@ -5,22 +5,25 @@
 	"main": "build/main.js",
 	"scripts": {
 		"postinstall": "npm run babel",
-		"babel": "babel --presets=react,env --plugins=transform-object-rest-spread *.js --out-dir build",
-		"start": "cd test ; webpack-dev-server --no-info --content-base build/ ; cd .."
+		"babel": "babel --presets=@babel/preset-react,@babel/preset-env *.js --out-dir build",
+		"start": "webpack serve -c ./test/webpack.config.js"
 	},
 	"dependencies": {
-		"babel-cli": "6.23.0",
-		"babel-plugin-transform-object-rest-spread": "6.26.0",
-		"babel-preset-env": "1.7.0",
-		"babel-preset-react": "6.24.1"
+		"@babel/cli": "7.16.8",
+		"@babel/preset-env": "7.16.8",
+		"@babel/preset-react": "7.16.7"
 	},
 	"devDependencies": {
 		"babel-loader": "8.2.3",
 		"babel-plugin-transform-runtime": "6.23.0",
-		"css-loader": "0.28.11",
+		"css-loader": "5.0.1",
 		"html-webpack-plugin": "5.5.0",
+		"progress-bar-webpack-plugin": "^2.1.0",
+		"react": "^17.0.2",
+		"react-dom": "^17.0.2",
 		"style-loader": "0.21.0",
 		"webpack": "5.65.0",
-		"webpack-dev-server": "4.6.0"
+		"webpack-cli": "4.9.1",
+		"webpack-dev-server": "4.7.3"
 	}
 }
